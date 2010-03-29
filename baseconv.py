@@ -1,6 +1,11 @@
 # Copyright (c) 2010 Taurinus Software Ltda. All rights reserved.
 # Copyright (c) 2009 Simon Willison. All rights reserved.
 # Copyright (c) 2002 Drew Perttula. All rights reserved.
+#
+# See the file "LICENSE" for terms & conditions for usage, and a
+# DISCLAIMER OF ALL WARRANTIES.
+#
+# License: PSF License (Python License).
 
 """
 Convert numbers from base 10 integers to base X strings and back again.

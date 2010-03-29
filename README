@@ -1,0 +1,31 @@
+.. -*- mode: rst -*-
+
+This is baseconv version 1.0 alpha
+==================================
+
+Copyright (c) 2010 Taurinus Software Ltda.
+All rights reserved.
+
+Copyright (c) 2009 Simon Willison.
+All rights reserved.
+
+Copyright (c) 2002 Drew Perttula.
+All rights reserved.
+
+**Author(s):**
+    Drew Perttula, Simon Willison, Guilherme Gondim
+**Reference:**
+    http://www.djangosnippets.org/snippets/1431/
+    http://code.activestate.com/recipes/111286/
+**Project website:**
+    http://code.taurinus.com/baseconv/
+
+
+License information
+-------------------
+
+See the file "LICENSE" for terms & conditions for usage, and a
+DISCLAIMER OF ALL WARRANTIES.
+
+All trademarks referenced herein are property of their respective
+holders.

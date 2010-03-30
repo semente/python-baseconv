@@ -1,4 +1,4 @@
--*- restructuredtext -*-
+.. -*- restructuredtext -*-
 
 This is baseconv version 1.0 alpha
 ==================================
@@ -17,7 +17,7 @@ All rights reserved.
 **License:**
     Python Software Foundation License version 2
 **Reference:**
-    http://www.djangosnippets.org/snippets/1431/
+    http://www.djangosnippets.org/snippets/1431/ ;
     http://code.activestate.com/recipes/111286/
 **Project website:**
     http://code.taurinus.com/baseconv/

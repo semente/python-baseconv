@@ -2,10 +2,18 @@
 # Copyright (c) 2009 Simon Willison. All rights reserved.
 # Copyright (c) 2002 Drew Perttula. All rights reserved.
 #
-# See the file "LICENSE" for terms & conditions for usage, and a
-# DISCLAIMER OF ALL WARRANTIES.
+# License:
+#   Python Software Foundation License version 2
 #
-# License: PSF License (Python License).
+# See the file "LICENSE" for terms & conditions for usage, and a DISCLAIMER OF
+# ALL WARRANTIES.
+#
+# This Baseconv distribution contains no GNU General Public Licensed (GPLed)
+# code so it may be used in proprietary projects just like prior ``baseconv``
+# distributions.
+#
+# All trademarks referenced herein are property of their respective holders.
+#
 
 """
 Convert numbers from base 10 integers to base X strings and back again.

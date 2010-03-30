@@ -1,4 +1,4 @@
-.. -*- mode: rst -*-
+-*- restructuredtext -*-
 
 This is baseconv version 1.0 alpha
 ==================================
@@ -14,18 +14,23 @@ All rights reserved.
 
 **Author(s):**
     Drew Perttula, Simon Willison, Guilherme Gondim
+**License:**
+    Python Software Foundation License version 2
 **Reference:**
     http://www.djangosnippets.org/snippets/1431/
     http://code.activestate.com/recipes/111286/
 **Project website:**
     http://code.taurinus.com/baseconv/
 
-
 License information
 -------------------
 
 See the file "LICENSE" for terms & conditions for usage, and a
 DISCLAIMER OF ALL WARRANTIES.
+
+This Baseconv distribution contains no GNU General Public Licensed
+(GPLed) code so it may be used in proprietary projects just like prior
+Baseconv distributions.
 
 All trademarks referenced herein are property of their respective
 holders.

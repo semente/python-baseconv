@@ -1,7 +1,7 @@
 PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
 --------------------------------------------
 
-1. This LICENSE AGREEMENT is between the Taurinus Software Ltda., Simon
+1. This LICENSE AGREEMENT is between the Taurinus Collective, Simon
 Willison and Drew Perttula ("Baseconv Authors"), and the Individual or
 Organization ("Licensee") accessing and otherwise using this software
 ("Baseconv") in source or binary form and its associated documentation.
@@ -12,7 +12,7 @@ world-wide license to reproduce, analyze, test, perform and/or display
 publicly, prepare derivative works, distribute, and otherwise use
 Baseconv alone or in any derivative version, provided, however, that
 Baseconv Authors's License Agreement and Baseconv Author's notice of
-copyright, i.e., "Copyright (c) 2010 Taurinus Software Ltda.; Copyright
+copyright, i.e., "Copyright (c) 2010 Taurinus Collective.; Copyright
 (c) 2009 Simon Willison.; Copyright (c) 2002 Drew Perttula.; All Rights
 Reserved" are retained in Baseconv alone or in any derivative version
 prepared by Licensee.

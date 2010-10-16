@@ -3,7 +3,7 @@
 This is baseconv version 1.0 alpha
 ==================================
 
-Copyright (c) 2010 Taurinus Software Ltda.
+Copyright (c) 2010 Taurinus Collective
 All rights reserved.
 
 Copyright (c) 2009 Simon Willison.
@@ -20,7 +20,7 @@ All rights reserved.
     http://www.djangosnippets.org/snippets/1431/ ;
     http://code.activestate.com/recipes/111286/
 **Project website:**
-    http://code.taurinus.com/baseconv/
+    http://code.taurinus.org/baseconv/
 
 License information
 -------------------

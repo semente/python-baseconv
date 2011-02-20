@@ -3,7 +3,7 @@
 This is baseconv version 1.0 alpha
 ==================================
 
-Copyright (c) 2010 Taurinus Collective
+Copyright (c) 2010. Taurinus Collective
 All rights reserved.
 
 Copyright (c) 2009 Simon Willison.
@@ -28,9 +28,8 @@ License information
 See the file "LICENSE" for terms & conditions for usage, and a
 DISCLAIMER OF ALL WARRANTIES.
 
-This Baseconv distribution contains no GNU General Public Licensed
-(GPLed) code so it may be used in proprietary projects just like prior
-Baseconv distributions.
+This baseconv distribution contains no GNU General Public Licensed (GPLed)
+code, just like prior baseconv distributions.
 
 All trademarks referenced herein are property of their respective
 holders.

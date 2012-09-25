@@ -1,4 +1,4 @@
-This is baseconv version 1.0
+This is baseconv version 1.1
 ============================
 
 Copyright (c) 2010, 2011, 2012 Guilherme Gondim.

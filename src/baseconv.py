@@ -1,4 +1,4 @@
-# Copyright (c) 2010 Guilherme Gondim. All rights reserved.
+# Copyright (c) 2010, 2011, 2012 Guilherme Gondim. All rights reserved.
 # Copyright (c) 2009 Simon Willison. All rights reserved.
 # Copyright (c) 2002 Drew Perttula. All rights reserved.
 #
@@ -29,7 +29,7 @@ Sample usage::
   '-31e'
   >>> base20.decode('-31e')
   '-1234'
-  >>> base11 = BaseConverter('0123456789-', signal='$')
+  >>> base11 = BaseConverter('0123456789-', sign='$')
   >>> base11.encode('$1234')
   '$-22'
   >>> base11.decode('$-22')
@@ -37,63 +37,70 @@ Sample usage::
 
 """
 
-BINARY_ALPHABET      = '01'
-HEXADECIMAL_ALPHABET = '0123456789ABCDEF'
 
-BASE56_URLSAFE_ALPHABET = ('ABCDEFGHJKLMNPQRSTUVWXYZ'
-                           'abcdefghijkmnpqrstuvwxyz'
-                           '23456789')
-BASE62_URLSAFE_ALPHABET = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-                           'abcdefghijklmnopqrstuvwxyz'
-                           '0123456789')
-BASE64_URLSAFE_ALPHABET = BASE62_URLSAFE_ALPHABET + '-_'
+BASE2_ALPHABET = '01'
+BASE16_ALPHABET = '0123456789ABCDEF'
+BASE56_ALPHABET = '23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz'
+BASE36_ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyz'
+BASE62_ALPHABET = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+BASE64_ALPHABET = BASE62_ALPHABET + '-_'
+
 
 class BaseConverter(object):
     decimal_digits = '0123456789'
 
-    def __init__(self, digits, signal='-'):
-        self.signal = signal
+    def __init__(self, digits, sign='-'):
+        self.sign = sign
         self.digits = digits
+        if sign in self.digits:
+            raise ValueError('Sign character found in converter base digits.')
 
-    def encode(self, string):
-        return self.convert(string, self.decimal_digits, self.digits,
-                            self.signal)
+    def __repr__(self):
+        return "<BaseConverter: base%s (%s)>" % (len(self.digits), self.digits)
 
-    def decode(self, string):
-        return self.convert(string, self.digits, self.decimal_digits,
-                            self.signal)
-
-    def convert(number, fromdigits, todigits, signal):
-        if (str(number)[0] == signal):
+    def _convert(self, number, from_digits, to_digits):
+        if str(number)[0] == self.sign:
             number = str(number)[1:]
-            neg = 1
+            neg = True
         else:
-            neg = 0
+            neg = False
 
         # make an integer out of the number
         x = 0
         for digit in str(number):
-           x = x * len(fromdigits) + fromdigits.index(digit)
+            x = x * len(from_digits) + from_digits.index(digit)
 
-        # create the result in base 'len(todigits)'
+        # create the result in base 'len(to_digits)'
         if x == 0:
-            res = todigits[0]
+            res = to_digits[0]
         else:
             res = ''
             while x > 0:
-                digit = x % len(todigits)
-                res = todigits[digit] + res
-                x = int(x / len(todigits))
-            if neg:
-                res = signal + res
-        return res
-    convert = staticmethod(convert)
+                digit = x % len(to_digits)
+                res = to_digits[digit] + res
+                x = int(x // len(to_digits))
+        return neg, res
 
-bin = BaseConverter(BINARY_ALPHABET)
-hexconv = BaseConverter(HEXADECIMAL_ALPHABET)
-base56_urlsafe = BaseConverter(BASE56_URLSAFE_ALPHABET)
-base62_urlsafe = BaseConverter(BASE62_URLSAFE_ALPHABET)
-base64_urlsafe = BaseConverter(BASE64_URLSAFE_ALPHABET, signal='$')
+    def encode(self, number):
+        neg, value = self._convert(number, self.decimal_digits, self.digits)
+        if neg:
+            return self.sign + value
+        return value
+
+    def decode(self, number):
+        neg, value = self._convert(number, self.digits, self.decimal_digits)
+        if neg:
+            return self.sign + value
+        return value
+
+
+base2 = BaseConverter(BASE2_ALPHABET)
+base16 = BaseConverter(BASE16_ALPHABET)
+base36 = BaseConverter(BASE36_ALPHABET)
+base56 = BaseConverter(BASE56_ALPHABET)
+base62 = BaseConverter(BASE62_ALPHABET)
+base64 = BaseConverter(BASE64_ALPHABET, sign='$')
+
 
 if __name__ == '__main__':
     # doctests
@@ -102,15 +109,13 @@ if __name__ == '__main__':
 
     # other tests
     nums = [-10 ** 10, 10 ** 10] + range(-100, 100)
-    for converter in [bin,hexconv,base56_urlsafe,base62_urlsafe,base64_urlsafe]:
-        if converter.signal == '-':
+    for converter in [base2,base16,base36,base56,base62,base64]:
+        if converter.sign == '-':
             for i in nums:
-                assert i == int(converter.decode(converter.encode(i))), \
-                    '%s failed' % i
+                assert i == int(converter.decode(converter.encode(i))), '%s failed' % i
         else:
             for i in nums:
                 i = str(i)
                 if i[0] == '-':
-                    i = converter.signal + i[1:]
-                assert i == converter.decode(converter.encode(i)), \
-                    '%s failed' % i
+                    i = converter.sign + i[1:]
+                assert i == converter.decode(converter.encode(i)), '%s failed' % i

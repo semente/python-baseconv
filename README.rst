@@ -1,5 +1,5 @@
-This is baseconv version 1.1
-============================
+baseconv
+========
 
 Copyright (c) 2010, 2011, 2012 Guilherme Gondim.
 All rights reserved.
@@ -10,15 +10,18 @@ All rights reserved.
 Copyright (c) 2002 Drew Perttula.
 All rights reserved.
 
+**Description:**
+    Convert numbers from base 10 integers to base X strings and back
+    again.
 **Author(s):**
     Drew Perttula, Simon Willison, Guilherme Gondim
 **License:**
     Python Software Foundation License version 2
-**Reference:**
-    http://www.djangosnippets.org/snippets/1431/ ;
-    http://code.activestate.com/recipes/111286/
 **Project website:**
     https://bitbucket.org/semente/baseconv/
+**References:**
+    http://www.djangosnippets.org/snippets/1431/ ;
+    http://code.activestate.com/recipes/111286/
 
 License information
 -------------------
@@ -35,4 +38,4 @@ holders.
 Django
 ------
 
-The Django Project includes a version of this module on ``django.utils.baseconv``.
+The Django Project includes a copy of this module on ``django.utils.baseconv``.

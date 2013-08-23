@@ -32,6 +32,7 @@ setup(
     url='https://bitbucket.org/semente/baseconv/',
     download_url='https://bitbucket.org/semente/baseconv/downloads/',
     zip_safe=False,
+    include_package_data=True,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',

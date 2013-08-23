@@ -23,6 +23,26 @@ All rights reserved.
     http://www.djangosnippets.org/snippets/1431/ ;
     http://code.activestate.com/recipes/111286/
 
+Sample usage
+------------
+
+::
+
+  >>> base20 = BaseConverter('0123456789abcdefghij')
+  >>> base20.encode(1234)
+  '31e'
+  >>> base20.decode('31e')
+  '1234'
+  >>> base20.encode(-1234)
+  '-31e'
+  >>> base20.decode('-31e')
+  '-1234'
+  >>> base11 = BaseConverter('0123456789-', sign='$')
+  >>> base11.encode('$1234')
+  '$-22'
+  >>> base11.decode('$-22')
+  '$1234'
+
 License information
 -------------------
 

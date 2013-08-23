@@ -17,7 +17,7 @@ read = lambda filepath: codecs.open(filepath, 'r', 'utf-8').read()
 
 setup(
     name='python-baseconv',
-    version='1.1.1',
+    version='1.1.2',
     description=(
         'Convert numbers from base 10 integers to base X strings '
         'and back again.'

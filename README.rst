@@ -31,3 +31,8 @@ code, just like prior baseconv distributions.
 
 All trademarks referenced herein are property of their respective
 holders.
+
+Django
+------
+
+The Django Project includes a version of this module on ``django.utils.baseconv`` package.

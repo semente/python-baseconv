@@ -35,4 +35,4 @@ holders.
 Django
 ------
 
-The Django Project includes a version of this module on ``django.utils.baseconv`` package.
+The Django Project includes a version of this module on ``django.utils.baseconv``.

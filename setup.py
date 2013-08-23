@@ -24,7 +24,7 @@ setup(
     ),
     long_description=read(join(dirname(__file__), 'README.rst')),
     keywords='converter numbers math',
-    author='Guilherme Gondim',
+    author='Drew Perttula, Guilherme Gondim, Simon Willison',
     author_email='semente+baseconv@taurinus.org',
     maintainer='Guilherme Gondim',
     maintainer_email='semente+baseconv@taurinus.org',

@@ -24,7 +24,7 @@ All rights reserved.
     http://code.activestate.com/recipes/111286/
 
 Install and Usage Instructions
------------------------------
+------------------------------
 
 You can use ``pip`` to install ``baseconv`` module::
 

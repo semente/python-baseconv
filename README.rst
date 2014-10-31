@@ -23,10 +23,14 @@ All rights reserved.
     http://www.djangosnippets.org/snippets/1431/ ;
     http://code.activestate.com/recipes/111286/
 
-Sample usage
-------------
+Install and Usage Instructions
+-----------------------------
 
-::
+You can use ``pip`` to install ``baseconv`` module::
+
+    $ pip install python-baseconv
+
+Sample usage::
 
   >>> base20 = BaseConverter('0123456789abcdefghij')
   >>> base20.encode(1234)

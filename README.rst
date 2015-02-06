@@ -11,7 +11,7 @@ Copyright (c) 2002 Drew Perttula.
 All rights reserved.
 
 **Description:**
-    Python library to convert numbers from base 10 integers to base X strings and back again.
+    Python module to convert numbers from base 10 integers to base X strings and back again.
 **Author(s):**
     Drew Perttula, Simon Willison, Guilherme Gondim
 **License:**

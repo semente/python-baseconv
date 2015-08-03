@@ -17,7 +17,7 @@ All rights reserved.
 **License:**
     Python Software Foundation License version 2
 **Project website:**
-    https://bitbucket.org/semente/baseconv/
+    https://github.com/semente/python-baseconv
 **References:**
     http://www.djangosnippets.org/snippets/1431/ ;
     http://code.activestate.com/recipes/111286/

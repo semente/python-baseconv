@@ -1,7 +1,7 @@
 baseconv
 ========
 
-Copyright (c) 2010, 2011, 2012 Guilherme Gondim.
+Copyright (c) 2010, 2011, 2012, 2015 Guilherme Gondim.
 All rights reserved.
 
 Copyright (c) 2009 Simon Willison.

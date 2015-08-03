@@ -108,8 +108,8 @@ if __name__ == '__main__':
     doctest.testmod()
 
     # other tests
-    nums = [-10 ** 10, 10 ** 10] + range(-100, 100)
-    for converter in [base2,base16,base36,base56,base62,base64]:
+    nums = [-10 ** 10, 10 ** 10] + list(range(-100, 100))
+    for converter in [base2, base16, base36, base56, base62, base64]:
         if converter.sign == '-':
             for i in nums:
                 assert i == int(converter.decode(converter.encode(i))), '%s failed' % i

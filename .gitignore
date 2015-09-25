@@ -1,2 +1,4 @@
 *~
 *.py[co]
+dist/
+python_baseconv.egg-info/

@@ -31,6 +31,7 @@ You can use ``pip`` to install ``baseconv`` module::
 
 Sample usage::
 
+  >>> from baseconv import BaseConverter
   >>> base20 = BaseConverter('0123456789abcdefghij')
   >>> base20.encode(1234)
   '31e'

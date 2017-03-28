@@ -56,7 +56,8 @@ class BaseConverter(object):
             raise ValueError('Sign character found in converter base digits.')
 
     def __repr__(self):
-        return "BaseConverter(%r, sign=%r)" % (self.digits, self.sign)
+        data = (self.__class__.__name__, self.digits, self.sign)
+        return "%s(%r, sign=%r)" % data
 
     def _convert(self, number, from_digits, to_digits):
         if str(number)[0] == self.sign:

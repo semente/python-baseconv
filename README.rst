@@ -39,26 +39,29 @@ Example usage::
   '10011010010'
   >>> base2.decode('10011010010')
   '1234'
-  >>> base64.encode(100000000000000000000000000000000000)
+  >>> base64.encode(100000000000000000000000000000000000L)
   '4q9XSiTDWYk7Z-W00000'
   >>> base64.decode('4q9XSiTDWYk7Z-W00000')
   '100000000000000000000000000000000000'
 
   >>> from baseconv import BaseConverter
-  >>> base20 = BaseConverter('MyOwnAlphabet0123456')
-  >>> base20.encode(1234)
+  >>> myconv = BaseConverter('MyOwnAlphabet0123456')
+  >>> repr(myconv)
+  "BaseConverter('MyOwnAlphabet0123456', sign='-')"
+  >>> myconv.encode('1234')
   'wy1'
-  >>> base20.decode('wy1')
+  >>> myconv.decode('wy1')
   '1234'
-  >>> base20.encode(-1234)
+  >>> myconv.encode(-1234)
   '-wy1'
-  >>> base20.decode('-wy1')
+  >>> myconv.decode('-wy1')
   '-1234'
   >>> base11 = BaseConverter('0123456789-', sign='$')
   >>> base11.encode('$1234')
   '$-22'
   >>> base11.decode('$-22')
   '$1234'
+
 
 License information
 -------------------

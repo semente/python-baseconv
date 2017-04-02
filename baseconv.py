@@ -25,25 +25,27 @@ Example usage::
   '10011010010'
   >>> base2.decode('10011010010')
   '1234'
-  >>> base64.encode(100000000000000000000000000000000000)
+  >>> base64.encode(100000000000000000000000000000000000L)
   '4q9XSiTDWYk7Z-W00000'
   >>> base64.decode('4q9XSiTDWYk7Z-W00000')
   '100000000000000000000000000000000000'
 
   >>> from baseconv import BaseConverter
-  >>> base20 = BaseConverter('MyOwnAlphabet0123456')
-  >>> base20.encode(1234)
+  >>> myconv = BaseConverter('MyOwnAlphabet0123456')
+  >>> repr(myconv)
+  "BaseConverter('MyOwnAlphabet0123456', sign='-')"
+  >>> myconv.encode('1234')
   'wy1'
-  >>> base20.decode('wy1')
+  >>> myconv.decode('wy1')
   '1234'
-  >>> base20.encode(-1234)
+  >>> myconv.encode(-1234)
   '-wy1'
-  >>> base20.decode('-wy1')
+  >>> myconv.decode('-wy1')
   '-1234'
-  >>> base11 = BaseConverter('0123456789-', sign='$')
-  >>> base11.encode('$1234')
+  >>> altsign = BaseConverter('0123456789-', sign='$')
+  >>> altsign.encode('$1234')
   '$-22'
-  >>> base11.decode('$-22')
+  >>> altsign.decode('$-22')
   '$1234'
 
 Exceptions::
@@ -56,12 +58,12 @@ Exceptions::
   >>> base56.encode(3.14)
   Traceback (most recent call last):
       ...
-  ValueError: invalid digit: "."
+  ValueError: invalid digit "."
 
   >>> base56.decode('01IOlo')
   Traceback (most recent call last):
       ...
-  ValueError: invalid digit: "0"
+  ValueError: invalid digit "0"
 
 """
 
@@ -100,7 +102,7 @@ class BaseConverter(object):
             try:
                 x = x * len(from_digits) + from_digits.index(digit)
             except ValueError:
-                raise ValueError('invalid digit: "%s"' % digit)
+                raise ValueError('invalid digit "%s"' % digit)
 
         # create the result in base 'len(to_digits)'
         if x == 0:

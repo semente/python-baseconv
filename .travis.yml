@@ -4,8 +4,13 @@ python:
   - 3.4
   - 3.5
   - 3.6
+install:
+  - pip install coverage
+  - pip install coveralls
 script:
-  - python baseconv.py
+  - coverage run baseconv.py
+after_success:
+  - coveralls
 branches:
   only:
     - master

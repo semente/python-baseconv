@@ -1,8 +1,14 @@
 baseconv
 ========
 
+.. image:: https://badge.fury.io/py/python-baseconv.svg
+    :target: http://badge.fury.io/py/django-smuggler
+
 .. image:: https://travis-ci.org/semente/python-baseconv.svg?branch=master
     :target: https://travis-ci.org/semente/python-baseconv
+
+.. image:: https://coveralls.io/repos/semente/python-baseconv/badge.png?branch=master
+    :target: https://coveralls.io/r/semente/python-baseconv?branch=master
 
 Copyright (c) 2010, 2011, 2012, 2015, 2017 Guilherme Gondim.
 All rights reserved.

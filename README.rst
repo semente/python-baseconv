@@ -1,6 +1,9 @@
 baseconv
 ========
 
+.. image:: https://travis-ci.org/semente/python-baseconv.svg?branch=master
+    :target: https://travis-ci.org/semente/python-baseconv
+
 Copyright (c) 2010, 2011, 2012, 2015, 2017 Guilherme Gondim.
 All rights reserved.
 

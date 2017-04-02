@@ -69,7 +69,7 @@ Exceptions::
 
 """
 
-__version__ = '1.2.0'
+__version__ = '1.3.0-dev'
 
 BASE2_ALPHABET = '01'
 BASE16_ALPHABET = '0123456789ABCDEF'

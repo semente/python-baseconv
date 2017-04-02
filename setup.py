@@ -8,16 +8,16 @@ from os.path import join, dirname
 from setuptools import setup
 
 
+read = lambda filepath: codecs.open(filepath, 'r', 'utf-8').read()
+version = __import__('baseconv').__version__
+
 if 'publish' in sys.argv:
     os.system('python setup.py sdist upload')
     sys.exit()
 
-read = lambda filepath: codecs.open(filepath, 'r', 'utf-8').read()
-
-
 setup(
     name='python-baseconv',
-    version='1.1.3',
+    version=version,
     description=(
         'Convert numbers from base 10 integers to base X strings '
         'and back again.'
@@ -28,7 +28,7 @@ setup(
     maintainer='Guilherme Gondim',
     license='Python Software Foundation License',
     url='https://github.com/semente/python-baseconv',
-    download_url='https://github.com/semente/python-baseconv/archive/master.zip',
+    download_url='https://github.com/semente/python-baseconv/releases',
     zip_safe=False,
     include_package_data=True,
     classifiers=[

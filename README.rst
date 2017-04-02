@@ -40,7 +40,7 @@ You can use ``pip`` to install ``baseconv`` module::
 
 Example usage::
 
-  >>> from baseconv import base2, base16, base36, base56, base62, base64
+  >>> from baseconv import base2, base16, base36, base56, base58, base62, base64
   >>> base2.encode(1234)
   '10011010010'
   >>> base2.decode('10011010010')

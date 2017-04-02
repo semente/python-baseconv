@@ -20,7 +20,7 @@ Convert numbers from base 10 integers to base X strings and back again.
 
 Example usage::
 
-  >>> from baseconv import base2, base16, base36, base56, base62, base64
+  >>> from baseconv import base2, base16, base36, base56, base58, base62, base64
   >>> base2.encode(1234)
   '10011010010'
   >>> base2.decode('10011010010')
@@ -62,7 +62,7 @@ Exceptions::
       ...
   ValueError: invalid digit "."
 
-  >>> base56.decode('01IOlo')
+  >>> base58.decode('0IOl')
   Traceback (most recent call last):
       ...
   ValueError: invalid digit "0"
@@ -75,6 +75,7 @@ BASE2_ALPHABET = '01'
 BASE16_ALPHABET = '0123456789ABCDEF'
 BASE36_ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyz'
 BASE56_ALPHABET = '23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz'
+BASE58_ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 BASE62_ALPHABET = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 BASE64_ALPHABET = BASE62_ALPHABET + '-_'
 
@@ -141,6 +142,7 @@ base2 = BaseConverter(BASE2_ALPHABET)
 base16 = BaseConverter(BASE16_ALPHABET)
 base36 = BaseConverter(BASE36_ALPHABET)
 base56 = BaseConverter(BASE56_ALPHABET)
+base58 = BaseConverter(BASE58_ALPHABET)
 base62 = BaseConverter(BASE62_ALPHABET)
 base64 = BaseConverter(BASE64_ALPHABET, sign='$')
 
@@ -152,6 +154,6 @@ if __name__ == '__main__':
 
     # other tests
     nums = [-10 ** 10, 10 ** 10] + list(range(-100, 100))
-    for converter in [base2, base16, base36, base56, base62, base64]:
+    for converter in [base2, base16, base36, base56, base58, base62, base64]:
         for i in nums:
             assert i == int(converter.decode(converter.encode(i))), '%s failed' % i

@@ -46,6 +46,23 @@ Example usage::
   >>> base11.decode('$-22')
   '$1234'
 
+Exceptions::
+
+  >>> BaseConverter(digits='xyz-._', sign='-')
+  Traceback (most recent call last):
+      ...
+  ValueError: sign character found in converter base digits
+
+  >>> base56.encode(3.14)
+  Traceback (most recent call last):
+      ...
+  ValueError: invalid digit: "."
+
+  >>> base56.decode('01IOlo')
+  Traceback (most recent call last):
+      ...
+  ValueError: invalid digit: "0"
+
 """
 
 
@@ -64,7 +81,7 @@ class BaseConverter(object):
         self.sign = sign
         self.digits = digits
         if sign in self.digits:
-            raise ValueError('Sign character found in converter base digits.')
+            raise ValueError('sign character found in converter base digits')
 
     def __repr__(self):
         data = (self.__class__.__name__, self.digits, self.sign)
@@ -80,7 +97,10 @@ class BaseConverter(object):
         # make an integer out of the number
         x = 0
         for digit in str(number):
-            x = x * len(from_digits) + from_digits.index(digit)
+            try:
+                x = x * len(from_digits) + from_digits.index(digit)
+            except ValueError:
+                raise ValueError('invalid digit: "%s"' % digit)
 
         # create the result in base 'len(to_digits)'
         if x == 0:

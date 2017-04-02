@@ -1,7 +1,7 @@
 baseconv
 ========
 
-Copyright (c) 2010, 2011, 2012, 2015 Guilherme Gondim.
+Copyright (c) 2010, 2011, 2012, 2015, 2017 Guilherme Gondim.
 All rights reserved.
 
 Copyright (c) 2009 Simon Willison.
@@ -29,7 +29,7 @@ You can use ``pip`` to install ``baseconv`` module::
 
     $ pip install python-baseconv
 
-Sample usage::
+Example usage::
 
   >>> from baseconv import base2, base16, base36, base56, base62, base64
   >>> base2.encode(1234)

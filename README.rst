@@ -2,7 +2,7 @@ baseconv
 ========
 
 .. image:: https://badge.fury.io/py/python-baseconv.svg
-    :target: http://badge.fury.io/py/django-smuggler
+    :target: http://badge.fury.io/py/python-baseconv
 
 .. image:: https://travis-ci.org/semente/python-baseconv.svg?branch=master
     :target: https://travis-ci.org/semente/python-baseconv

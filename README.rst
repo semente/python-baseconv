@@ -56,11 +56,13 @@ Example usage::
   '-wy1'
   >>> myconv.decode('-wy1')
   '-1234'
-  >>> base11 = BaseConverter('0123456789-', sign='$')
-  >>> base11.encode('$1234')
-  '$-22'
-  >>> base11.decode('$-22')
-  '$1234'
+  >>> altsign = BaseConverter('abcd-', sign='$')
+  >>> repr(altsign)
+  "BaseConverter('abcd-', sign='$')"
+  >>> altsign.encode(-1000000)
+  '$cc-aaaaaa'
+  >>> altsign.decode('$cc-aaaaaa')
+  '-1000000'
 
 
 License information

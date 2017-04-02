@@ -42,11 +42,13 @@ Example usage::
   '-wy1'
   >>> myconv.decode('-wy1')
   '-1234'
-  >>> altsign = BaseConverter('0123456789-', sign='$')
-  >>> altsign.encode('$1234')
-  '$-22'
-  >>> altsign.decode('$-22')
-  '$1234'
+  >>> altsign = BaseConverter('abcd-', sign='$')
+  >>> repr(altsign)
+  "BaseConverter('abcd-', sign='$')"
+  >>> altsign.encode(-1000000)
+  '$cc-aaaaaa'
+  >>> altsign.decode('$cc-aaaaaa')
+  '-1000000'
 
 Exceptions::
 
@@ -90,12 +92,6 @@ class BaseConverter(object):
         return "%s(%r, sign=%r)" % data
 
     def _convert(self, number, from_digits, to_digits):
-        if str(number)[0] == self.sign:
-            number = str(number)[1:]
-            neg = True
-        else:
-            neg = False
-
         # make an integer out of the number
         x = 0
         for digit in str(number):
@@ -113,18 +109,30 @@ class BaseConverter(object):
                 digit = x % len(to_digits)
                 res = to_digits[digit] + res
                 x = int(x // len(to_digits))
-        return neg, res
+        return res
 
     def encode(self, number):
-        neg, value = self._convert(number, self.decimal_digits, self.digits)
+        if str(number)[0] == '-':
+            neg = True
+            number = str(number)[1:]
+        else:
+            neg = False
+
+        value = self._convert(number, self.decimal_digits, self.digits)
         if neg:
             return self.sign + value
         return value
 
     def decode(self, number):
-        neg, value = self._convert(number, self.digits, self.decimal_digits)
+        if str(number)[0] == self.sign:
+            neg = True
+            number = str(number)[1:]
+        else:
+            neg = False
+
+        value = self._convert(number, self.digits, self.decimal_digits)
         if neg:
-            return self.sign + value
+            return '-' + value
         return value
 
 
@@ -144,12 +152,5 @@ if __name__ == '__main__':
     # other tests
     nums = [-10 ** 10, 10 ** 10] + list(range(-100, 100))
     for converter in [base2, base16, base36, base56, base62, base64]:
-        if converter.sign == '-':
-            for i in nums:
-                assert i == int(converter.decode(converter.encode(i))), '%s failed' % i
-        else:
-            for i in nums:
-                i = str(i)
-                if i[0] == '-':
-                    i = converter.sign + i[1:]
-                assert i == converter.decode(converter.encode(i)), '%s failed' % i
+        for i in nums:
+            assert i == int(converter.decode(converter.encode(i))), '%s failed' % i

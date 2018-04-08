@@ -52,6 +52,11 @@ Example usage::
 
 Exceptions::
 
+  >>> BaseConverter('')
+  Traceback (most recent call last):
+      ...
+  ValueError: converter base digits length too short
+
   >>> BaseConverter(digits='xyz-._', sign='-')
   Traceback (most recent call last):
       ...

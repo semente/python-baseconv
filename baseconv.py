@@ -52,6 +52,11 @@ Example usage::
 
 Exceptions::
 
+  >>> BaseConverter('')
+  Traceback (most recent call last):
+      ...
+  ValueError: converter base digits length too short
+
   >>> BaseConverter(digits='xyz-._', sign='-')
   Traceback (most recent call last):
       ...
@@ -88,6 +93,8 @@ class BaseConverter(object):
         self.digits = digits
         if sign in self.digits:
             raise ValueError('sign character found in converter base digits')
+        if len(self.digits) <= 1:
+            raise ValueError('converter base digits length too short')
 
     def __repr__(self):
         data = (self.__class__.__name__, self.digits, self.sign)

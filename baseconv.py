@@ -74,7 +74,7 @@ Exceptions::
 
 """
 
-__version__ = '1.2.1'
+__version__ = '1.2.2'
 
 BASE2_ALPHABET = '01'
 BASE16_ALPHABET = '0123456789ABCDEF'
